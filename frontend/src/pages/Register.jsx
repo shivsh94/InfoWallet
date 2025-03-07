@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 
 const Register = () => {
+
+    const navigate = useNavigate();
 
     const [form, setForm] = useState({
         name: '',
@@ -24,6 +27,8 @@ const Register = () => {
             console.log(response.data);
             if(response.data.success) {
                 toast.success("User registered successfully!")
+                localStorage.setItem('token', response.data.token);
+                navigate('/');
             }
             else {
                 toast.error(" User already exists!")
@@ -33,7 +38,6 @@ const Register = () => {
             console.log(error);
         }
     }
-
 
     return (
         <div className='w-full h-screen bg-gray-950 flex justify-center items-center font-serif text-xl text-[#57A6A1]'>
