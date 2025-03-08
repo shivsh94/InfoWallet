@@ -2,12 +2,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Home, User, Menu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Navbar = () => {
 
     const navigate = useNavigate();
 
+    const handleLogout = () => {
+        const res = axios.post('/logout');
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        navigate('/login');
+    }
+
     return (
+
 
         <motion.div
             initial={{ x: -250, opacity: 0 }}
@@ -25,14 +34,19 @@ const Navbar = () => {
                     <button onClick={() => navigate('/')} className='cursor-pointer'>Home</button>
                 </div>
                 <div className='w-full h-20  flex justify-center items-center gap-5 text-3xl hover:text-red-900'>
-                    <button onClick={() => navigate('/login')} className='cursor-pointer'>Login</button>
+                    <button onClick={() => navigate('/login')} className='cursor-pointer'>....</button>
                 </div>
                 <div className='w-full h-20  flex justify-center items-center gap-5 text-3xl hover:text-red-900'>
-                    <button onClick={() => navigate('/login')} className='cursor-pointer'>Login</button>
+                    <button onClick={() => navigate('/login')} className='cursor-pointer'>....</button>
                 </div>
+                {location.pathname === '/login' ? (
                 <div className='w-full h-20  flex justify-center items-center gap-5 text-3xl  hover:text-red-900'>
                     <button onClick={() => navigate('/login')} className='cursor-pointer'>Login</button>
                 </div>
+                ) : (
+                <div className='w-full h-20  flex justify-center items-center gap-5 text-3xl hover:text-red-900'>
+                    <button onClick={handleLogout} className='cursor-pointer'>Logout</button>
+                </div>)}
             </div>
 
 
@@ -51,7 +65,7 @@ const Navbar = () => {
                     <User onClick={() => navigate('/login')} size='32' color='white' />
                 </div>
                 <div className='w-full h-20  flex justify-center items-center gap-5 text-3xl pr-5 cursor-pointer'>
-                    <User onClick={() => navigate('/login')} size='32' color='white' />
+                    <User onClick={handleLogout} size='32' color='white' />
                 </div>
             </div>
 
