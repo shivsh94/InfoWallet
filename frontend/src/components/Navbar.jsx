@@ -33,11 +33,11 @@ const Navbar = () => {
                 <div className='w-full h-20  flex justify-center items-center gap-5 text-3xl hover:text-red-900'>
                     <button onClick={() => navigate('/')} className='cursor-pointer'>Home</button>
                 </div>
-                <div className='w-full h-20  flex justify-center items-center gap-5 text-3xl hover:text-red-900'>
-                    <button onClick={() => navigate('/login')} className='cursor-pointer'>....</button>
+                <div className='w-full h-20  flex justify-center items-center gap-5 text-3xl tracking-tight hover:text-red-900'>
+                    <button onClick={() => navigate('/mypurchases')} className='cursor-pointer'>My Purchase</button>
                 </div>
                 <div className='w-full h-20  flex justify-center items-center gap-5 text-3xl hover:text-red-900'>
-                    <button onClick={() => navigate('/login')} className='cursor-pointer'>....</button>
+                    <button onClick={() => navigate('/collections')} className='cursor-pointer'>Collections</button>
                 </div>
                 {location.pathname === '/login' ? (
                 <div className='w-full h-20  flex justify-center items-center gap-5 text-3xl  hover:text-red-900'>

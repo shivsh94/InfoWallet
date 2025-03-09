@@ -6,6 +6,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import { Toaster } from 'react-hot-toast';
 import axios from 'axios';
+import MYPurchase from './pages/MY_Purchase';
+import Collections from './pages/Collections';
 
 
 
@@ -23,6 +25,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/mypurchases" element={<MYPurchase />} />
+        <Route path='/collections' element={<Collections />} />
       </Routes>
     </Router>
   );
