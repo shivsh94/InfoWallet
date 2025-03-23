@@ -18,6 +18,8 @@ axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 
 const App = () => {
   return (
+    <div className='w-screen min-h-screen overflow-x-hidden'>
+
     <Router>
       <Navbar/>
       <Toaster/>
@@ -29,6 +31,7 @@ const App = () => {
         <Route path='/collections' element={<Collections />} />
       </Routes>
     </Router>
+    </div>
   );
 }
 
