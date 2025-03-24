@@ -15,14 +15,13 @@ export const createCollection = async (req, res) => {
   try {
     const { name, title, description, price } = req.body;
     
-    // Validate required fields
+     
     if (!req.file) return res.status(400).json({ message: "No file uploaded" });
     if (!name || !title || !description || !price)
       return res.status(400).json({ message: "Please fill in all fields" });
 
     if (isNaN(price)) return res.status(400).json({ message: "Price must be a number" });
 
-    // Upload file to Cloudinary
     const result = await new Promise((resolve, reject) => {
       const stream = cloudinary.uploader.upload_stream(
         { folder: "uploads" }, 
